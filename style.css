@@ -22,7 +22,7 @@ body
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1px;
+    gap: 2px;
     width: 410px;
     margin: auto;
     margin-top: 100px;
@@ -37,7 +37,7 @@ body
     -moz-box-shadow: -7px -19px 10px 2px rgba(0,0,0,0.39);
     
     background-color: gray;
-    padding: 10px 5px 10px 5px;
+    padding: 15px 10px 15px 10px;
 }
 
 .calculator>*
@@ -49,15 +49,31 @@ body
 #screen
 {
     flex: 1 1 400px;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.75);
     height: 50px;
     margin: 0 5px 5px 5px;
+    padding-right: 10px;
+    border: 2px inset black;
+    box-shadow: 0px 0px 10px 2px rgba(255, 255, 255, 0.413);
+    -webkit-box-shadow: 0px 0px 10px 2px rgba(255,255,255,0.31);
+    -moz-box-shadow: 0px 0px 10px 2px rgba(255,255,255,0.31);
+    text-align: right;
+    font-family: 'Handjet', cursive;
+    font-weight: 600;
 }
 
 button
 {
     font-size: 50px;
     border-radius: 10px;
+    box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.31) inset,
+     0px 0px 10px 2px rgba(0,0,0,0.31);
+    -webkit-box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.31) inset,
+     0px 0px 10px 2px rgba(0,0,0,0.31);
+    -moz-box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.31) inset,
+     0px 0px 10px 2px rgba(0,0,0,0.31);
+
+
 }
 
 #clear, #num0
@@ -67,17 +83,33 @@ button
 
 .num, #period
 {
-    background-color: blue;
+    background-color: rgb(232, 232, 232);
+}
+
+.num:active, #period:active
+{
+    background-color: rgb(189, 189, 189);
+    transition: .1s;
 }
 
 .operator
 {
-    background-color: aquamarine;
+    background-color: rgb(90, 204, 193);
+}
+
+.operator-selected
+{
+    background-color: rgb(64, 145, 137);
 }
 
 #clear, #equals
 {
-    background-color: orange;
+    background-color: rgb(231, 171, 60);
+}
+
+#clear:active, #equals:active
+{
+    background-color: rgb(192, 143, 51);
 }
 
 

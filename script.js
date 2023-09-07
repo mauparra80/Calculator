@@ -13,6 +13,7 @@ let stack = new Array();
 
 const buttons = document.querySelectorAll("button");
 const screen = document.getElementById("#screen");
+const operatorBtns = document.querySelectorAll(".operator");
 
 
 for (let button of buttons)
@@ -32,12 +33,14 @@ function choose(e)
             clearCalc();
             numx = result;
             stack.push(numx);
+            clearSelected();
         }
     }
     else if (input == "clear")
     {
         clearCalc();
         freshClear = true;
+        clearSelected();
     }
     else
     {
@@ -172,6 +175,13 @@ function choose(e)
     updateScreen();
 }
 
+//darkens operator buttons
+function selectOperator(e)
+{
+    clearSelected();
+    e.target.classList.add("operator-selected");
+}
+
 function firstNum()
 {
     if (isNum(input) || input == "-" || input == ".") {
@@ -205,6 +215,7 @@ function calculate() //we assume stack has all 3 elements
     numx = "";
     numy = "";
     operator = "";
+    clearSelected();
 }
 
 function updateScreen()
@@ -215,17 +226,10 @@ function updateScreen()
     {
         screenText += cur;
     }
-    console.log(screenText);
+    // console.log(screenText);
     screen.innerText=screenText;
-
-
-
-    console.log(screenText);
     screenText = "";
 }
-
-
-
 
 
 
@@ -250,6 +254,14 @@ function toPercent(num)
 function clearCalc()
 {
     stack = [];
+}
+
+function clearSelected()
+{
+    for (thisOperatorBtn of operatorBtns)
+    {
+        thisOperatorBtn.classList.remove("operator-selected");
+    }
 }
 
 //supporting operating functions
